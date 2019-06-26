@@ -1,0 +1,29 @@
+version: '3'
+services:
+  php:
+    container_name: ""
+    build: .
+    ports:
+      - "1111:80"
+    expose:
+      - "8080"
+    volumes:
+      - stfiles:/tmp
+      - srcfiles:/var/www/html
+  webgrind:
+    image: tbfisher/webgrind
+    links:
+      - php
+    volumes:
+      - stfiles:/tmp
+      - srcfiles:/var/www/html
+    ports:
+      - 8081:8080
+    environment:
+      XDEBUG_OUTPUT_DIR: /tmp
+      WEBGRIND_STORAGE_DIR: /tmp
+volumes:
+  stfiles:
+    driver: local
+  srcfiles:
+    driver: local
