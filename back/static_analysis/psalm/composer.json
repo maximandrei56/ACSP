@@ -1,8 +1,0 @@
-{
-    "name": "Example",
-    "description": "Example of use of psalm",
-    "require": {
-        "vimeo/psalm": "@dev",
-        "ircmaxell/php-cfg": "@dev"
-    }
-} 
